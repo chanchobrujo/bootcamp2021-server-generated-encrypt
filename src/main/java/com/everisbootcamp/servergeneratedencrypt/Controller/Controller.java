@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.everisbootcamp.servergeneratedencrypt.service.Service;
+import com.everisbootcamp.servergeneratedencrypt.service.ServiceLogic;
 
 import reactor.core.publisher.Mono;
 
@@ -15,9 +15,9 @@ import reactor.core.publisher.Mono;
 @RequestMapping
 public class Controller {
 	@Autowired
-	private Service service;
+	private ServiceLogic service;
 	
-    @GetMapping("/generated-number/{size}")
+    @GetMapping("/generatednumber/{size}")
     public Mono< ResponseEntity<String> > generatedNumber(@PathVariable("size") int size){
         return service
         		.generatedNumber(size)
@@ -26,7 +26,7 @@ public class Controller {
         		.internalServerError().build());
     }
 	
-    @GetMapping("/encript-password/{password}")
+    @GetMapping("/encriptpassword/{password}")
     public Mono< ResponseEntity<String> > encriptPassword(@PathVariable("password") String password){
         return service
         		.encriptPassword(password)

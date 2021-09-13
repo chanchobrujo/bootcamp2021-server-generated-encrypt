@@ -4,9 +4,12 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.Random;
 
+import org.springframework.stereotype.Service;
+
 import reactor.core.publisher.Mono;
 
-public class Service {
+@Service
+public class ServiceLogic {
 	public Mono<String> generatedNumber(int size){
 		String chain = "";
 		Random random = new Random();
