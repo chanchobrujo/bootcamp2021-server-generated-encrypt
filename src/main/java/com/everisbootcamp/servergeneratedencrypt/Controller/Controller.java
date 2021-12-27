@@ -17,7 +17,7 @@ public class Controller {
     private ServiceLogic service;
 
     @GetMapping("/generatednumber")
-    public Mono<ResponseEntity<String>> generatedNumber(@RequestParam int size) {
+    public Mono<ResponseEntity<String>> generatedNumber(@RequestParam Integer size) {
         return service
             .generatedNumber(size)
             .map(s -> ResponseEntity.ok().body(s))
